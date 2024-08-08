@@ -1,0 +1,25 @@
+<div class="container mt-3">
+  <h1>Lists</h1>
+  <div class="cards">
+    <div class="card-category">
+      <%= @list.name %>
+    </div>
+    <div class="container mt-4">
+      <h1>Create a Bookmark</h1>
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <div class="mb-3">
+          <%= f.label :comment, class: "form-label" %>
+          <%= f.text_area :comment, class: "form-control" %>
+          <%= f.association :movie %>
+        </div>
+        <%= f.submit 'Create My Bookmark', class: 'btn btn-info mt-2' %>
+      <% end %>
+    </div>
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="bookmark">
+        <p><%= bookmark.comment %></p>
+        <p><%= bookmark.movie.title %></p>
+      </div>
+    <%end%>
+  </div>
+</div>
