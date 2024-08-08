@@ -1,13 +1,11 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(##);">
-  <div class="container">
-    <h1>Theater box</h1>
-  </div>
+<%= render 'shared/navbar' %>
+<div class="container">
+  <h1>My libraries:</h1>
 </div>
 <div class="container">
-  <%= link_to "add a list", new_list_path %>
   <div class="cards">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('image_logo_03') %>)">
         <%= link_to list.name, list_path(list) %>
       </div>
     <% end %>

@@ -1,4 +1,5 @@
-<div class="container">
+<%= render 'shared/navbar' %>
+<div class="card">
   <%= simple_form_for [@list, @bookmark] do |f| %>
     <%= f.input :comment %>
     <%= f.association :movie %>
