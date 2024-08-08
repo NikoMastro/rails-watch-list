@@ -7,6 +7,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @bookmark = Bookmark.new
+    @post = Date.new
   end
 
   def new
@@ -20,6 +21,10 @@ class ListsController < ApplicationController
     else
       render 'new', status: :unprocessable_entity
     end
+  end
+
+  def delete
+    @list = List.destroy(list_params[:id])
   end
 
   private

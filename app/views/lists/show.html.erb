@@ -1,25 +1,21 @@
 <div class="container mt-3">
-  <h1>Lists</h1>
+  <h1>My list: <%=@list.name%></h1>
   <div class="cards">
-    <div class="card-category">
-      <%= @list.name %>
-    </div>
     <div class="container mt-4">
-      <h1>Create a Bookmark</h1>
-      <%= simple_form_for [@list, @bookmark] do |f| %>
-        <div class="mb-3">
-          <%= f.label :comment, class: "form-label" %>
-          <%= f.text_area :comment, class: "form-control" %>
-          <%= f.association :movie %>
-        </div>
-        <%= f.submit 'Create My Bookmark', class: 'btn btn-info mt-2' %>
-      <% end %>
-    </div>
-    <% @list.bookmarks.each do |bookmark| %>
-      <div class="bookmark">
-        <p><%= bookmark.comment %></p>
-        <p><%= bookmark.movie.title %></p>
+      <% @list.bookmarks.each do |bookmark| %>
+        <li><em>Comment:</em><br>
+          "<%=bookmark.comment%>":<%=@post.strftime("posted on %d/%m/%y")%></li>
+        <li><em>Movie:</em><br>
+          <%=bookmark.movie.title%></li>
       </div>
     <%end%>
+    <!--Need to iterate my @list.bookmark.each do |bookmark| to show h-->
   </div>
+</div>
+<div class="container">
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit 'Create my bookmark', class: 'btn btn-info mt-2' %>
+  <% end %>
 </div>
