@@ -7,7 +7,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @bookmark = Bookmark.new
-    @post = Date.new
+    @post = Date.today
   end
 
   def new
