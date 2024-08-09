@@ -15,7 +15,7 @@
     <% @list.bookmarks.each do |bookmark| %>
       <div class="col-md-4 mb-3">
         <div class="card h-100">
-          <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="<%= bookmark.movie.title %> poster">
+          <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top", alt: "#{bookmark.movie.title} poster" %>
           <div class="card-body">
             <h5 class="card-title"><%= bookmark.movie.title %></h5>
             <p class="card-text"><%= bookmark.movie.overview %></p>

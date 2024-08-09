@@ -5,7 +5,7 @@
 <div class="container">
   <div class="cards">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('image_logo_03') %>)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('image_logo_03') %>)">
         <%= link_to list.name, list_path(list) %>
       </div>
     <% end %>
